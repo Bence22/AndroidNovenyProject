@@ -3,6 +3,7 @@ package com.example.gyogynovenykisokos;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
@@ -14,6 +15,8 @@ import android.view.MenuItem;
 import com.google.gson.Gson;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import okhttp3.ResponseBody;
 import retrofit2.Call;
@@ -22,15 +25,25 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 
 public class MainActivity extends AppCompatActivity {
-
+    private RecyclerView recyclerView;
+    private PlantAdapter plantAdapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        recyclerView = findViewById(R.id.recyclerView);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+
+        List<PlantData> plantDataList = new ArrayList<>();
+
+        plantAdapter = new PlantAdapter(this, plantDataList);
+        recyclerView.setAdapter(plantAdapter);
+
         Toolbar toolbar = findViewById(R.id.main_toolbar);
         setSupportActionBar(toolbar);
-        setTitle("Gyógynövény Kisokos");
+        setTitle("Plant Finder");
 
 
         RecyclerView recyclerView = findViewById(R.id.recyclerView);
@@ -57,12 +70,17 @@ public class MainActivity extends AppCompatActivity {
                     Gson gson = new Gson();
                     Root root = gson.fromJson(json, Root.class);
 
-                    for (PlantData plant : root.getData()) {
-                        System.out.println(plant.getCommon_name());
+                    List<PlantData> plantDataList = root.getData();
 
-                    }
+
+                    plantAdapter.updateData(plantDataList);
+
+                    //for (PlantData plant : root.getData()) {
+                    //System.out.println(plant.getCommon_name());
+
+
                 } else {
-                    Log.d("result", "Fail api call");// Handle the API call error
+                    Log.d("result", "Fail api call");
                 }
             }
 
@@ -79,7 +97,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<ResponseBody> call, Throwable t) {
-                Log.d("result", "Network error");// Handle the network error
+                Log.d("result", "Network error");
             }
         });
     }
