@@ -25,6 +25,7 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 
 public class MainActivity extends AppCompatActivity {
+    
     private RecyclerView recyclerView;
     private PlantAdapter plantAdapter;
     @Override
@@ -84,11 +85,8 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
 
-            //@Override
-            //public boolean onCreateOptionsMenu(Menu menu) {
-                //getMenuInflater().inflate(R.menu.main_menu, menu);
-                //return true;
-            //}
+
+
 
            //@Override
             //public boolean onOptionsItemSelected(@NonNull MenuItem item) {
