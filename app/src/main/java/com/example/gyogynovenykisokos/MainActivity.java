@@ -26,6 +26,7 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 
 public class MainActivity extends AppCompatActivity {
+    
     private RecyclerView recyclerView;
     private PlantAdapter plantAdapter;
     private List<PlantData> plantDataList = new ArrayList<>();
@@ -99,6 +100,14 @@ public class MainActivity extends AppCompatActivity {
                     Log.d("result", "Fail api call");
                 }
             }
+
+
+
+
+           //@Override
+            //public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+                //return super.onOptionsItemSelected(item);
+            //}
 
             @Override
             public void onFailure(Call<ResponseBody> call, Throwable t) {
