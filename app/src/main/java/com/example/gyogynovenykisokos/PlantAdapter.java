@@ -15,15 +15,19 @@ public class PlantAdapter extends RecyclerView.Adapter<PlantAdapter.PlantViewHol
     private Context context;
     private List<PlantData> plantDataList;
 
+
     public PlantAdapter(Context context, List<PlantData> plantDataList) {
         this.context = context;
         this.plantDataList = plantDataList;
+
     }
     public void updateData(List<PlantData> newPlantDataList) {
         plantDataList.clear();
         plantDataList.addAll(newPlantDataList);
         notifyDataSetChanged();
     }
+
+
 
     @NonNull
     @Override
