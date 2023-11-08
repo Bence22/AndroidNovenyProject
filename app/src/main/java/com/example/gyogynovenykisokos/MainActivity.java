@@ -98,10 +98,13 @@ public class MainActivity extends AppCompatActivity {
 
             if (itemId == R.id.action_home) {
                 //showMessage("Főoldal");
+                loadFragment(new HomeFragment(), "home");
             } else if (itemId == R.id.action_profile) {
                 //showMessage("Profil");
+                loadFragment(new ProfileFragment(), "profile");
             } else if (itemId == R.id.action_favourites) {
                 //showMessage("Favourites");
+                loadFragment(new favouritesFragment(), "favourites");
             } else {
                 return super.onOptionsItemSelected(item);
             }
