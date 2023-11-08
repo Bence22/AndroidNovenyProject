@@ -18,11 +18,9 @@ public class HomeFragment extends Fragment {
     private static final String NAME_PARAM = "name";
     private String mName;
 
-
     public HomeFragment() {
         // Required empty public constructor
     }
-
 
     public static HomeFragment newInstance(String name) {
         HomeFragment fragment = new HomeFragment();
@@ -46,10 +44,6 @@ public class HomeFragment extends Fragment {
         // Inflate the layout for this fragment
         View rootView = inflater.inflate(R.layout.fragment_home, container, false);
 
-        TextView profileNameTextView = rootView.findViewById(R.id.fragment_home);
-        if(mName != null) {
-            profileNameTextView.setText(mName);
-        }
 
         return rootView;
     }

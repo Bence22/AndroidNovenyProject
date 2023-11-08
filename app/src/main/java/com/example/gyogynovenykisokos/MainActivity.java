@@ -35,11 +35,19 @@ import retrofit2.Retrofit;
 
 public class MainActivity extends AppCompatActivity {
 
-    private void loadFragment(Fragment fragment, String tag) {
+    private void loadFragment(Fragment fragment, String tag, boolean addToBackStack) {
         FragmentTransaction fragmentTransaction =  getSupportFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.fragment_container, fragment, tag);
+        if(addToBackStack) {
+            fragmentTransaction.addToBackStack(tag);
+        }
+
         fragmentTransaction.commit();
     }
+    private void loadFragmentAndAddToBackStack(Fragment fragment, String tag) {
+        loadFragment(fragment, tag, true);
+    }
+
 
     private RecyclerView recyclerView;
     private PlantAdapter plantAdapter;
@@ -65,6 +73,8 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         setTitle("Plant Finder");
 
+        loadFragment(new HomeFragment(), "home", false);
+
         fetchDataFromApi();
 
     }
@@ -75,6 +85,7 @@ public class MainActivity extends AppCompatActivity {
 
         MenuItem searchItem = menu.findItem(R.id.action_search);
         SearchView searchView = (SearchView) searchItem.getActionView();
+
 
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
@@ -98,13 +109,13 @@ public class MainActivity extends AppCompatActivity {
 
             if (itemId == R.id.action_home) {
                 //showMessage("Főoldal");
-                loadFragment(new HomeFragment(), "home");
+                loadFragmentAndAddToBackStack(new HomeFragment(), "home");
             } else if (itemId == R.id.action_profile) {
                 //showMessage("Profil");
-                loadFragment(new ProfileFragment(), "profile");
+                loadFragmentAndAddToBackStack(new ProfileFragment(), "profile");
             } else if (itemId == R.id.action_favourites) {
                 //showMessage("Favourites");
-                loadFragment(new favouritesFragment(), "favourites");
+                loadFragmentAndAddToBackStack(new favouritesFragment(), "favourites");
             } else {
                 return super.onOptionsItemSelected(item);
             }
