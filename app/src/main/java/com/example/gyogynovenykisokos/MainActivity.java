@@ -6,11 +6,16 @@ import androidx.appcompat.widget.SearchView;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+
+
+
 
 //import com.example.androidnovenyproject.R;
 import com.google.gson.Gson;
@@ -25,12 +30,25 @@ import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 
+
+
+
 public class MainActivity extends AppCompatActivity {
-    
+
+    private void loadFragment(Fragment fragment, String tag) {
+        FragmentTransaction fragmentTransaction =  getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.replace(R.id.fragment_container, fragment, tag);
+        fragmentTransaction.commit();
+    }
+
     private RecyclerView recyclerView;
     private PlantAdapter plantAdapter;
     private List<PlantData> plantDataList = new ArrayList<>();
     private List<PlantData> filteredPlantDataList = new ArrayList<>();
+
+
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +66,7 @@ public class MainActivity extends AppCompatActivity {
         setTitle("Plant Finder");
 
         fetchDataFromApi();
+
     }
 
     @Override
@@ -72,6 +91,25 @@ public class MainActivity extends AppCompatActivity {
 
         return true;
     }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+            int itemId = item.getItemId();
+
+            if (itemId == R.id.action_home) {
+                //showMessage("Főoldal");
+            } else if (itemId == R.id.action_profile) {
+                //showMessage("Profil");
+            } else if (itemId == R.id.action_favourites) {
+                //showMessage("Favourites");
+            } else {
+                return super.onOptionsItemSelected(item);
+            }
+
+            return true;
+        }
+
+
 
     private void fetchDataFromApi() {
         Retrofit retrofit = new Retrofit.Builder()

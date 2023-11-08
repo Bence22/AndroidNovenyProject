@@ -3,16 +3,16 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item android:id="@+id/action_home"
-        android:title="Főoldal"
+        android:title="Home"
         app:showAsAction="always"
         android:icon="@drawable/baseline_home_black_24dp" />
 
     <item android:id="@+id/action_profile"
         android:title="Profil"
-        app:showAsAction="never" />
+        app:showAsAction="never"/>
 
-    <item android:id="@+id/action_settings"
-        android:title="Beállítások"
+    <item android:id="@+id/action_favourites"
+        android:title="Favourites"
         app:showAsAction="never" />
 
     <item
