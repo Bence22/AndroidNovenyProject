@@ -13,11 +13,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.AdapterView;
 
-
-
-
-//import com.example.androidnovenyproject.R;
 import com.google.gson.Gson;
 
 import java.io.IOException;
@@ -66,7 +63,21 @@ public class MainActivity extends AppCompatActivity {
         recyclerView = findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        plantAdapter = new PlantAdapter(this, filteredPlantDataList);
+        plantAdapter = new PlantAdapter(this, filteredPlantDataList, new ItemClickListener() {
+            @Override
+            public void onItemClick(PlantData plant) {
+                Fragment profile = new ProfileFragment();
+                Bundle args = new Bundle();
+                args.putSerializable("plant", plant);
+                profile.setArguments(args);
+
+                FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+                transaction.replace(R.id.fragment_container, profile);
+                transaction.addToBackStack(null);
+                transaction.commit();
+
+            }
+        });
         recyclerView.setAdapter(plantAdapter);
 
         Toolbar toolbar = findViewById(R.id.main_toolbar);
@@ -155,6 +166,12 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+            public void onItemClick(PlantData plantData) {
+                Log.d("click",plantData.getCommon_name());
+
+                //ProfileFragment profileFragment = ProfileFragment.newInstance(plantData);
+                //loadFragmentAndAddToBackStack(profileFragment, "profile");
+            }
 
            //@Override
             //public boolean onOptionsItemSelected(@NonNull MenuItem item) {

@@ -1,8 +1,11 @@
 package com.example.gyogynovenykisokos;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class PlantData {
+
+public class PlantData implements Serializable {
+
     private int id;
     private String common_name;
     private List<String> scientific_name;
@@ -11,6 +14,7 @@ public class PlantData {
     private String watering;
     private List<String> sunlight;
     private ImageData default_image;
+    private ImageData thumbnail_image;
 
     public int getId() {
         return id;
@@ -74,5 +78,13 @@ public class PlantData {
 
     public void setDefault_image(ImageData default_image) {
         this.default_image = default_image;
+    }
+
+    public ImageData getThumbnail_image() {
+        return thumbnail_image;
+    }
+
+    public void setThumbnail_image(ImageData thumbnail_image) {
+        this.thumbnail_image = thumbnail_image;
     }
 }

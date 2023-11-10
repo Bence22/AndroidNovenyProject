@@ -12,7 +12,7 @@
         android:id="@+id/main_toolbar"
         android:layout_width="0dp"
         android:layout_height="?attr/actionBarSize"
-        android:background="?attr/colorPrimary"
+        android:background="#457A47"
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme"
         app:layout_constraintEnd_toEndOf="parent"
@@ -21,45 +21,32 @@
 
 
     <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/appCompatTextView"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:background="#F6E65A"
+        android:background="#3E3E3E"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/main_toolbar"
         app:layout_constraintVertical_bias="0.0"
         tools:layout_editor_absoluteX="-28dp" />
 
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
-        android:layout_width="356dp"
-        android:layout_height="291dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="32dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:orientation="vertical"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/appCompatTextView"
+        app:layout_constraintEnd_toEndOf="@+id/appCompatTextView"
         app:layout_constraintHorizontal_bias="0.545"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="355dp"
-        android:layout_height="75dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="64dp"
-        android:layout_marginEnd="32dp"
-        android:text="Talált Növények"
-        android:textSize="34sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/appCompatTextView"
         app:layout_constraintTop_toBottomOf="@+id/main_toolbar" />
-
 
     <FrameLayout
         android:id="@+id/fragment_container"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:background="#00BFBFBF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"

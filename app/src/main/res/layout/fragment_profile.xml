@@ -1,16 +1,71 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ProfileFragment">
+    android:background="#3E3E3E"
+    android:orientation="vertical"
+    android:padding="16dp">
 
     <TextView
+        android:id="@+id/commonNameTextView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="#DC7F7F"
-        android:gravity="center"
-        android:text="Profile"
-        android:textSize="32sp" />
+        android:layout_height="wrap_content"
+        android:text="Common Name: "
+        android:textColor="#FAF0E6"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        tools:text="Common Name: Sample Common Name" />
 
-</FrameLayout>
+    <TextView
+        android:id="@+id/scientificNameTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Scientific Name: "
+        android:textColor="#FAF0E6"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        tools:text="Scientific Name: Sample Scientific Name" />
+
+    <TextView
+        android:id="@+id/otherNameTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Other Name: "
+        android:textColor="#FAF0E6"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        tools:text="Other Name: Sample Other Name" />
+
+    <TextView
+        android:id="@+id/cycleTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Cycle: "
+        android:textColor="#FAF0E6"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        tools:text="Cycle: Sample Cycle" />
+
+    <TextView
+        android:id="@+id/wateringTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Watering: "
+        android:textColor="#FAF0E6"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        tools:text="Watering: Sample Watering" />
+
+    <TextView
+        android:id="@+id/sunlightTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Sunlight: "
+        android:textColor="#FAF0E6"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        tools:text="Sunlight: Sample Sunlight" />
+
+</LinearLayout>
