@@ -160,7 +160,7 @@ public class MainActivity extends AppCompatActivity {
                     filteredPlantDataList.addAll(plantDataList);
                     plantAdapter.notifyDataSetChanged();
                 } else {
-                    Log.d("result", "Fail api call");
+                    Log.d("result", "Api call error");
                 }
             }
 

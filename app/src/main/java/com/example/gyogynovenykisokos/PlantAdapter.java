@@ -71,12 +71,16 @@ public class PlantAdapter extends RecyclerView.Adapter<PlantAdapter.PlantViewHol
         TextView commonNameTextView;
         TextView scientificNameTextView;
         ImageView thumbnailImageView;
+        ImageView originalImageView;
+
 
         PlantViewHolder(View itemView, final ItemClickListener listener, final List<PlantData> dataList) {
             super(itemView);
             commonNameTextView = itemView.findViewById(R.id.commonNameTextView);
             scientificNameTextView = itemView.findViewById(R.id.scientificNameTextView);
             thumbnailImageView = itemView.findViewById(R.id.thumbnailImageView);
+            originalImageView = itemView.findViewById(R.id.originalImageView);
+
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override

@@ -7,9 +7,12 @@ import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
+
+import com.bumptech.glide.Glide;
 
 public class ProfileFragment extends Fragment {
 
@@ -19,6 +22,7 @@ public class ProfileFragment extends Fragment {
     private TextView cycleTextView;
     private TextView wateringTextView;
     private TextView sunlightTextView;
+    private ImageView originalImageView;
 
     public ProfileFragment() {
 
@@ -27,6 +31,8 @@ public class ProfileFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.fragment_profile, container, false);
+
+        originalImageView = view.findViewById(R.id.originalImageView);
         view.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
@@ -43,6 +49,7 @@ public class ProfileFragment extends Fragment {
             cycleTextView = view.findViewById(R.id.cycleTextView);
             wateringTextView = view.findViewById(R.id.wateringTextView);
             sunlightTextView = view.findViewById(R.id.sunlightTextView);
+            originalImageView = view.findViewById(R.id.originalImageView);
 
             commonNameTextView.setText("Common Name: " + plant.getCommon_name());
             scientificNameTextView.setText("Scientific Name: " + plant.getScientific_name());
@@ -50,6 +57,12 @@ public class ProfileFragment extends Fragment {
             cycleTextView.setText("Cycle: " + plant.getCycle());
             wateringTextView.setText("Watering: " + plant.getWatering());
             sunlightTextView.setText("Sunlight: " + plant.getSunlight().toString());
+
+            if (plant.getDefault_image() != null && plant.getDefault_image().getOriginal_url() != null) {
+                Glide.with(requireContext()).load(plant.getDefault_image().getOriginal_url()).into(originalImageView);
+            } else {
+                originalImageView.setImageDrawable(null);
+            }
         }
         return view;
     }
