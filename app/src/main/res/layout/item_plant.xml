@@ -32,8 +32,8 @@
 
     <ToggleButton
         android:id="@+id/favouriteButton"
-        android:layout_width="33dp"
-        android:layout_height="32dp"
+        android:layout_width="51dp"
+        android:layout_height="wrap_content"
         android:background="@drawable/baseline_favorite_black_24dp"
         android:button="@null"
         android:text="ToggleButton" />

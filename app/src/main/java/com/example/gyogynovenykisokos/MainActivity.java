@@ -11,10 +11,14 @@ import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 
+import com.example.gyogynovenykisokos.favouriteviewmodel.FavouriteListAdapter;
 import com.google.gson.Gson;
 
 import java.io.IOException;
@@ -195,5 +199,15 @@ public class MainActivity extends AppCompatActivity {
         }
 
         plantAdapter.notifyDataSetChanged();
+    }
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+
+        RecyclerView recyclerView = findViewById(R.id.recyclerview_favourite);
+        final FavouriteListAdapter adapter = new FavouriteListAdapter(new FavouriteListAdapter.FavouritesDiff());
+        recyclerView.setAdapter(adapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        return inflater.inflate(R.layout.fragment_favourites, container, false);
     }
 }
