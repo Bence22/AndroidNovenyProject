@@ -1,4 +1,4 @@
-package com.example.gyogynovenykisokos.favouriteviewmodel;
+package com.example.gyogynovenykisokos.favouritelistadapter;
 
 import android.view.ViewGroup;
 
@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.ListAdapter;
 
 import com.example.gyogynovenykisokos.entity.Favourites;
+import com.example.gyogynovenykisokos.favouriteviewholder.FavouriteViewHolder;
 
 import java.util.Objects;
 

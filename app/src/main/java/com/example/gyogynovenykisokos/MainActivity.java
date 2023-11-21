@@ -1,6 +1,5 @@
 package com.example.gyogynovenykisokos;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
 import androidx.appcompat.widget.Toolbar;
@@ -16,9 +15,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 
-import com.example.gyogynovenykisokos.favouriteviewmodel.FavouriteListAdapter;
+import com.example.gyogynovenykisokos.favouritelistadapter.FavouriteListAdapter;
 import com.google.gson.Gson;
 
 import java.io.IOException;

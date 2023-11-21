@@ -1,4 +1,4 @@
-package com.example.gyogynovenykisokos.favouriteviewmodel;
+package com.example.gyogynovenykisokos.favouriteviewholder;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -21,7 +21,7 @@ public class FavouriteViewHolder extends RecyclerView.ViewHolder {
         favouriteItemView.setText(text);
     }
 
-    static FavouriteViewHolder create(ViewGroup parent) {
+    public static FavouriteViewHolder create(ViewGroup parent) {
         View view = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.item_plant, parent, false);
         return new FavouriteViewHolder(view);
