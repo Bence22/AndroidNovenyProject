@@ -1,1 +1,3 @@
-# AndroidNovenyProject
+# Gyógynövény kisokos
+Az alkalmazás célja egy olyan felület létrehozása, amelyben a felhasználó különböző gyógynövényeket tud keresni és azok részletes adatait megtekinteni. Az érdeklődési körét felkeltő növényeket el tudjja tárolni a favourites menüpontba.
+Az alkalmazás kezdőfelületén elérhető eszköztárban a felhasználó egy keresőfelület segítségével tud rákeresni az adott növényre, majd a találatokat az alkalmazás kilistázza a kezdő felületre.Az eszköztárban található továbbá egy menü és egy ikon, mellyel a kezdőfelületre lehet vissza navigálni. A felhasználó a kilistázott növények közül ki tudja választani a neki szimpatikusat és arra rákattintva a Profile menüpontra átjutva megnézheti a növény részletes adatait. A kilistázott elemeknél egy szív alakú nyomógombbal lehet a kívánt növényt a kedvencek közé tenni.
