@@ -123,9 +123,6 @@ public class MainActivity extends AppCompatActivity {
             if (itemId == R.id.action_home) {
                 //showMessage("Főoldal");
                 loadFragmentAndAddToBackStack(new HomeFragment(), "home");
-            } else if (itemId == R.id.action_profile) {
-                //showMessage("Profil");
-                loadFragmentAndAddToBackStack(new ProfileFragment(), "profile");
             } else if (itemId == R.id.action_favourites) {
                 //showMessage("Favourites");
                 loadFragmentAndAddToBackStack(new favouritesFragment(), "favourites");
