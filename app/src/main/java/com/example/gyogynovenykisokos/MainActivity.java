@@ -1,6 +1,5 @@
 package com.example.gyogynovenykisokos;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
 import androidx.appcompat.widget.Toolbar;
@@ -11,10 +10,13 @@ import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.AdapterView;
+import android.view.View;
+import android.view.ViewGroup;
 
+import com.example.gyogynovenykisokos.favouritelistadapter.FavouriteListAdapter;
 import com.google.gson.Gson;
 
 import java.io.IOException;
@@ -121,9 +123,6 @@ public class MainActivity extends AppCompatActivity {
             if (itemId == R.id.action_home) {
                 //showMessage("Főoldal");
                 loadFragmentAndAddToBackStack(new HomeFragment(), "home");
-            } else if (itemId == R.id.action_profile) {
-                //showMessage("Profil");
-                loadFragmentAndAddToBackStack(new ProfileFragment(), "profile");
             } else if (itemId == R.id.action_favourites) {
                 //showMessage("Favourites");
                 loadFragmentAndAddToBackStack(new favouritesFragment(), "favourites");
@@ -195,5 +194,15 @@ public class MainActivity extends AppCompatActivity {
         }
 
         plantAdapter.notifyDataSetChanged();
+    }
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+
+        RecyclerView recyclerView = findViewById(R.id.recyclerview_favourite);
+        final FavouriteListAdapter adapter = new FavouriteListAdapter(new FavouriteListAdapter.FavouritesDiff());
+        recyclerView.setAdapter(adapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        return inflater.inflate(R.layout.fragment_favourites, container, false);
     }
 }
